@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+</head>
+<body>
+    <h1>Log in</h1>
+    <a href="/index.html">Home</a>
+
+    <form id ="login" name="login"> <!-- TODO: Add username address input -->
+         <label for ="UsernameInput">Enter username</label>
+        <input id="UsernameInput" type="text" name="UsernameInput" autofocus>
+        <!-- TODO: Add password address input -->
+        <label for ="password">Enter password</label>
+        <input id="password" type="text" name="password" autofocus>
+        <!-- TODO: Add submit button -->
+        <input type="submit" value="Submit"/>
+    </form>
+
+    <script type="text/javascript">
+
+function callApi() {
+		let url="/api/login" 
+
+		return fetch(url).then(response => response.json());
+	}
+callApi();
+
+let form = document.getElementById("login");
+let UsernameInput =  document.getElementById("UsernameInput");
+let passwordInput = document.getElementById("password");
+
+form.addEventListener("submit", (event) => { 
+		event.preventDefault();      // stop the sumbit button
+
+
+let data = new FormData(form);
+let UserName  = data.get("UsernameInput");
+let password = data.get("password"); //send to api
+//apend it the url 
+//let url= '/api/login' + URLSearchParams()
+
+callApi("/api/login").then(response => {
+  console.log('Got response:', response
+  )});
+
+  app.use(express.json())
+app.post('/api/login' , function(req,res){
+res.json({
+  username:"name",
+  user_id:1})
+})
+
+});
+
+
+
+    /*
+            TODO: Stop the submit button sending the form >
+            TODO: Capture the input values using FormData
+            TODO: Send the data to the login API /api/login
+            TODO: Check the login is correct agains some hard-coded values, e.g. username="test@test.com", password="password"
+         */
+    </script>
+</body>
+</html>
