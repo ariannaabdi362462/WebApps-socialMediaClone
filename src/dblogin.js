@@ -1,6 +1,6 @@
 const Sqlite = require('sqlite')
 const sqlite3 = require('sqlite3');
-const { connect } = require('../webApps/web-apps/Week 5/code/src/database');
+const { connect } = require('../loginform/src/webApps');
 const dbFilename= './webApps.db'
 
 sqlite3.verbose();
