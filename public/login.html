@@ -21,14 +21,19 @@
 
     <script>
 
+
+
+
+
 function callApi(data) { let url="/api/login" 
 let options = {
     method: "POST",
     headers:{
         "Content-Type":"application/json"
     },
-    body:JSON.stringify(data)
+    body:utils.formDataToJSON(data)
 }
+
 
 
 return fetch(url,options).then
@@ -40,12 +45,28 @@ return fetch(url,options).then
 
 
 //get username and pass to send to the API
+
+//check to see if login is correct. 
+function checklogin(){
+
 let form = document.getElementById("login");
 let username =  document.getElementById("username");
 let password = document.getElementById("password");
 
+if (username == null || username == ""){
+alert("please enter the username");
+return false;
+}
+
+if (password == null || password == ""){
+    alert("please enter password");
+    return false;
+}
+    alert('login succesful');
+}
+
 form.addEventListener("submit", (event) => { 
-		event.preventDefault();      // stop the sumbit button
+	event.preventDefault();      // stop the sumbit button
 
 //gets url 
 function apiGetRequest(url){

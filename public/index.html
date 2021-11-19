@@ -8,6 +8,34 @@
 
 <body>
     <h1>Home page</h1>
-    <a href="/login.html">Login</a>
+    <a href="/login.html">Login</a> 
+    <a id = "logoutLink" onclick="logout()" href="#">Logout</a>
+
 </body>
+
+<script>
+    //log user out by removing their token from session storage.
+function logout(){
+    window.sessionStorage.removeItem('token');
+    window.location = '/';
+}
+
+document.addEventListener('DOMContentLoaded', (event) => {
+        let loggedIn = window.sessionStorage.getItem('token')
+        let body = document.getElementsByTagName('body')[0];
+
+        if (loggedIn) {
+            text = 'Logged In as ' + sessionStorage.getItem('username')
+            document.getElementById('logoutLink').classList.remove('hidden')
+        }
+        else {
+            text = 'Logged Out'
+            document.getElementById('loginLink').classList.remove('hidden')
+        }
+
+        body.insertAdjacentHTML('beforeend', text);
+    })
+
+</script>
+
 </html>
