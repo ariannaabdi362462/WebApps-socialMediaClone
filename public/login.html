@@ -9,21 +9,22 @@
     <h1>Log in</h1>
     <a href="/index.html">Home</a>
 
+    <!--Display Result-->
+ <div class ="errorMsg"> 
+    <p> Username or password is invalid</p>
+ </div>
+
     <form id ="login" name="login"> <!-- TODO: Add username address input -->
          <label for ="username">Enter username</label>
         <input id="username" type="text" name="username" autofocus>
         <!-- TODO: Add password address input -->
         <label for ="password">Enter password</label>
-        <input id="password" type="text" name="password" autofocus>
+        <input id="password" type="password" name="password" autofocus>
         <!-- TODO: Add submit button -->
         <input type="submit" value="Submit"/>
     </form>
 
-    <script>
-
-
-
-
+    <script type="text/javascript">
 
 function callApi(data) { let url="/api/login" 
 let options = {
@@ -31,7 +32,7 @@ let options = {
     headers:{
         "Content-Type":"application/json"
     },
-    body:utils.formDataToJSON(data)
+    body:JSON.stringify(data)
 }
 
 
@@ -39,31 +40,17 @@ let options = {
 return fetch(url,options).then
 (response => response.json()
 
-)
-	
-}
+)}
 
 
 //get username and pass to send to the API
-
-//check to see if login is correct. 
-function checklogin(){
-
 let form = document.getElementById("login");
+//check to see if login is correct. 
+
 let username =  document.getElementById("username");
 let password = document.getElementById("password");
 
-if (username == null || username == ""){
-alert("please enter the username");
-return false;
-}
 
-if (password == null || password == ""){
-    alert("please enter password");
-    return false;
-}
-    alert('login succesful');
-}
 
 form.addEventListener("submit", (event) => { 
 	event.preventDefault();      // stop the sumbit button
@@ -79,6 +66,8 @@ function apiGetRequest(url){
 let formdata = new FormData(form);
 let username  = formdata.get("username");
 let password = formdata.get("password"); //send to api
+
+// let LoginError = document.getElementById("LoginError"); //send error msg
 //apend it the url 
 
 let data = {
@@ -86,10 +75,22 @@ let data = {
     password: password
 }
 
-callApi(data ).then(response => {
-  console.log(response
-  )})
+//username and password
+callApi(data).then(response => {
+   
+    let LoginError = document.getElementById("errorMsg"); //send error msg
+    
+    console.log(response);
+    if(response){  //login correct
+    }
+    else{
+        //output error message 
+        LoginError.insertAdjacentHTML("beforeend","<p>Username or password is invalid</p>");
+    }
 })
+})
+
+
 
   
 
