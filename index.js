@@ -26,6 +26,11 @@ app.post('/api/login', function (req, res) {
   res.json(result)
 })  
 
+app.post('/api/posts', function(req ,res){
+  console.log(req,body);
+  res.send({});  
+})
+
 //  if(req.body.username == 'username' && req.body.password == 'password'){
 //     res.send(true);
 //   }

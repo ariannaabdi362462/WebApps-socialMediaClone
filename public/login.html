@@ -8,7 +8,7 @@
 <body>
     <h1>Log in</h1>
     <a href="/index.html">Home</a>
-
+    <!-- <script src ="js/login.js"></script> Js file -->
   <!---Display Result-->
  <div id ="errorMsg">
  </div>
@@ -82,6 +82,7 @@ callApi(data).then(response => {
     console.log(response);
     if(response) {  //login
  
+        window.location = 'http://localhost:3000/new-posts.html' //login succesful 
     }
     else{
         //output error message 
