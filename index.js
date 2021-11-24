@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const port = 3000
 const users = require('./src/users.js')
+const posts = require('./src/posts.js')
 const funcs = require('./src/funcs.js')
 const { request } = require('express')
 
@@ -27,8 +28,20 @@ app.post('/api/login', function (req, res) {
 })  
 
 app.post('/api/posts', function(req ,res){
-  console.log(req,body);
+  
+  users.login(req.body.username, req.body.password, result => {
+    // result might be 'undefined', which is *not* valid JSON, but 'false' is
+    if (!result) {
+      result = false
+    }
+  
+    res.json(result)
+  })  //re name stuff
+  // put something here
+  console.log(req.body);
   res.send({});  
+
+  // can put if statement here
 })
 
 //  if(req.body.username == 'username' && req.body.password == 'password'){
