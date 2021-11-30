@@ -29,30 +29,26 @@ app.post('/api/login', function (req, res) {
 
 app.post('/api/posts', function(req ,res){
   
-  users.login(req.body.username, req.body.password, result => {
+  users.login(req.body.title, req.body.body, result => {
     // result might be 'undefined', which is *not* valid JSON, but 'false' is
     if (!result) {
       result = false
     }
   
     res.json(result)
-  })  //re name stuff
-  // put something here
+  }) 
+  
+   // put something here
   console.log(req.body);
   res.send({});  
 
   // can put if statement here
 })
-
-//  if(req.body.username == 'username' && req.body.password == 'password'){
-//     res.send(true);
-//   }
-// else {
-//   res.send(false);
-// }
-  //  res.send(funcs.myFunction());
 })
 
+app.get('/api/comments',(req,res) 
+
+)
 // Tell us where we're running from
 console.log("Server running on http://localhost:" + port)
 app.listen(port)

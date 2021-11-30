@@ -9,7 +9,6 @@ module.exports = {
             db.get('SELECT * FROM users WHERE username = "' + username + '" AND password = "' + password + '"').then(result => {
            
                 // if (result && !result.token) {
-                 
                 //     let token = UUID.v4();
                 //     db.run('UPDATE users SET token = ? WHERE id = ?', token, result.id).then(() => {
                 //         result.token = token
