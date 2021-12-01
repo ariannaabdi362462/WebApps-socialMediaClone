@@ -12,18 +12,13 @@ let options = {
 
 
 
-return fetch(url,options) };
-
-//.then
-//(response => response.json()
-
-//)}
+return fetch(url,options).then(response => response.json()
+)}
 
 let form = document.getElementById("postForm");
 let title =  document.getElementById("title");
 let body = document.getElementById("body");
 
-let comment = document.getElementById("comment"); //comments on db
 
 postForm.addEventListener("submit", (event) => { 
 	event.preventDefault();      // stop the sumbit button
@@ -37,14 +32,13 @@ function apiGetRequest(url){
 
 
 let formData = new FormData(postForm);
-let title  = formData.get("Title");
-let body = formData.get("Body"); //send to api
-let comment = formData.get("Comment");
- 
+let title  = formData.get("title");
+let body = formData.get("body");     //send to api
+
     let data = {
     title: title,
     body: body,
-    comment:comment
+   
  }
 
 //data response
@@ -58,5 +52,6 @@ let comment = formData.get("Comment");
 //         //output error message 
 //         LoginError.insertAdjacentHTML("beforeend","<p>username or password is invalid</p>");
 //     }
-}
-)})
+})
+
+})
