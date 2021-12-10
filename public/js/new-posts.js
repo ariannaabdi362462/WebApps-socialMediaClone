@@ -5,7 +5,9 @@ let url="/api/posts"
 let options = {
     method: "POST",
     headers:{
-        "Content-Type":"application/json"
+        "Content-Type":"application/json",
+        //pass the user token through the headers
+        "X-API-Token": window.sessionStorage.getItem('token')
     },
     body:JSON.stringify(data)
 }
@@ -44,14 +46,7 @@ let body = formData.get("body");     //send to api
 //data response
  callApi(data).then(response => { 
      console.log(response);
-//     if(response) {  //login
- 
-//         window.location = 'http://localhost:3000/new-posts.html' //login succesful 
-//     }
-//     else{
-//         //output error message 
-//         LoginError.insertAdjacentHTML("beforeend","<p>username or password is invalid</p>");
-//     }
-})
 
 })
+})
+

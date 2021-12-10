@@ -27,14 +27,21 @@ app.post('/api/login', function (req, res) {
   res.json(result)
 })  
 
+function okResponse(res, code) {
+  res.status(code).send({})
+}
+
+function notAllowed(res) {
+  res.status(401).send({
+      error: "Not authorised"
+  })
+}
+
 app.post('/api/posts', function(req ,res){
   
   posts.insertPost(req.body.title, req.body.body, result =>
      {
-    // result might be 'undefined', which is *not* valid JSON, but 'false' is
-   //  if (!result) {
-   //   result = false
-   // }
+   
   
     res.send({});
  //   res.json(result)
@@ -47,9 +54,18 @@ app.post('/api/posts', function(req ,res){
 })
 })
 
-app.get('/api/comments',function(req,res) {
+app.get('/api/posts', (req,res) => {
+  let limit = 3
+  let offset = req.query.offset
 
+  posts.getPosts(offset, limit, (result) => {
+    res.json(result)
+  })
 })
+
+// app.get('/api/comments',function(req,res) {
+
+// })
 
 
 
