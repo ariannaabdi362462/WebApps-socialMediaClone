@@ -1,12 +1,28 @@
 const express = require('express')
 const app = express()
 const port = 3000
+
 const users = require('./src/users.js')
 const posts = require('./src/posts.js')
 const funcs = require('./src/funcs.js')
+
 const { request } = require('express')
 
+const UUID = require('uuid')
+const multer = require('multer')
 
+const storage = multer.diskStorage({
+  destination: function (req, file, callback){
+    callback(null, './public/uploads')
+  },
+  filename: function (req, file, callback){
+    callback(null ,UUID.v4() +'-' + file.originalname)
+  }
+})
+
+const upload = multer({
+  storage: storage
+})
 
 // Tell Express to serve HTML, JS, CSS etc from the public/ folder
 // See: http://expressjs.com/en/starter/static-files.html
@@ -63,10 +79,11 @@ app.get('/api/posts', (req,res) => {
   })
 })
 
-// app.get('/api/comments',function(req,res) {
 
-// })
-
+app.post('api/post', upload.single('image'), function (req,res){
+  console.log(req.body, req.file)
+  res.send({})
+})
 
 
 // Tell us where we're running from

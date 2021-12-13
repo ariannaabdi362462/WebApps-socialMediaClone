@@ -17,9 +17,9 @@ let options = {
 return fetch(url,options).then(response => response.json()
 )}
 
-let form = document.getElementById("postForm");
-let title =  document.getElementById("title");
-let body = document.getElementById("body");
+let form = document.getElementById("postForm")
+let title =  document.getElementById("title")
+let body = document.getElementById("body")
 
 
 postForm.addEventListener("submit", (event) => { 
@@ -33,9 +33,9 @@ function apiGetRequest(url){
 }
 
 
-let formData = new FormData(postForm);
-let title  = formData.get("title");
-let body = formData.get("body");     //send to api
+let formData = new FormData(postForm)
+let title  = formData.get("title")
+let body = formData.get("body")    //send to api
 
     let data = {
     title: title,
@@ -45,8 +45,15 @@ let body = formData.get("body");     //send to api
 
 //data response
  callApi(data).then(response => { 
-     console.log(response);
+     console.log(response)
 
 })
 })
 
+let form = document.getElementById('newPost')
+
+fetch('/api/post', {
+    method: "POST",
+    body: new FormData(form)
+
+})
