@@ -20,15 +20,15 @@ module.exports = {
 getPosts(offset, limit, callback) {
 
     DB.connect().then(db => {
-        db.all('SELECT * FROM posts("offset", "limit") ORDER BY id DESC LIMIT ? OFFSET ?').then(result => {
+        db.all('SELECT * FROM posts ORDER BY id DESC LIMIT ? OFFSET ?', limit, offset).then(result => {
 
             callback(result)
         })
-.catch(err => { 
-    console.log('post failed to upload:'+ err)
-         })
+        // .catch(err => { 
+        //      console.log('post failed to upload:'+ err)
+        //  })
     })
-}}    
+},   
 
 imageUpload(body, file, callback) {
 
@@ -43,7 +43,7 @@ imageUpload(body, file, callback) {
 
 }
 
-
+}
 // Doing a database INSERT with db.run returns a
 // lastID. Insert the image data first,
 // then use this id as the post.image_id

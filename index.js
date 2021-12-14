@@ -75,7 +75,8 @@ app.get('/api/posts', (req,res) => {
   let offset = req.query.offset
 
   posts.getPosts(offset, limit, (result) => {
-    res.json(result)
+    console.log(result)
+    res.send(result)
   })
 })
 

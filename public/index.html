@@ -18,14 +18,14 @@
     <a id = "logoutLink" onclick="logout()" href="#">Logout</a>
 
 </body>
-<div class = "posts">
+<div id = "posts">
 
 </div>
-<!-- 
+
 <div>
-    <button onclick="nextPage">Load more...</button> 
+    <button onclick="nextPage()">Load more...</button> 
 </div>
-     -->
+    
 <template id = "post-template">
 
     <div class = "post">
@@ -37,15 +37,22 @@
 
 <script>
 
-let template = document.getElementById("post-template")
-let container = document.getElementById("posts-container")
+function showPost(post){
 
-let clone = template.content.firstElementChild.cloneNode(true)
+    let template = document.getElementById("post-template")
+    let container = document.getElementById("posts")
 
-clone.getElementsByName('h2')[0].textContent = "My Post Title"
-clone.getElementsByClassName('body')[0].textContent = "My post content"
+    let clone = template.content.firstElementChild.cloneNode(true)
 
-container.appendChild(clone)
+    clone.getElementsByTagName('h2')[0].textContent = "My Post Title"
+    clone.getElementsByClassName('body')[0].textContent = "My post content"
+
+    container.appendChild(clone)
+
+
+}
+
+
 
 let itemsPerPage = 3
 let currentPage = 0
@@ -53,7 +60,13 @@ let currentPage = 0
 function loadPosts(){
     let offset = itemsPerPage * currentPage
 
-    fetch('/api/posts?offset=' + offset).then(result => {
+    fetch('/api/posts?offset=' + offset).then(response => {
+
+        response.json().then(result => {
+            console.log(result)
+            result.forEach(showPost)
+        })
+      
 
     })
 }
