@@ -1,5 +1,4 @@
 
-
 function callApi(data) {
 let url="/api/posts" 
 let options = {
@@ -10,12 +9,10 @@ let options = {
         "X-API-Token": window.sessionStorage.getItem('token')
     },
     body:JSON.stringify(data)
-}
+} 
 
 
-
-return fetch(url,options).then(response => response.json()
-)}
+ 
 
 let form = document.getElementById("postForm")
 let title =  document.getElementById("title")
@@ -57,3 +54,4 @@ fetch('/api/post', {
     body: new FormData(form)
 
 })
+}
