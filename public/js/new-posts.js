@@ -41,6 +41,7 @@ function apiGetRequest(url){
    
  }
 
+ 
  //data response
 //  callApi(data).then(response => { 
 //     console.log(response)

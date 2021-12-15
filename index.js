@@ -40,7 +40,8 @@ app.post('/api/login', function (req, res) {
     result = false
   }
 
-  res.json(result)
+    res.json(result)
+  }) 
 })  
 
 function okResponse(res, code) {
@@ -81,7 +82,7 @@ app.get('/api/posts', (req,res) => {
 })
 
 
-app.post('api/post', upload.single('image'), function (req,res){
+app.post('/api/post', upload.single('image'), function (req,res){
   console.log(req.body, req.file)
   res.send({})
 })
@@ -90,5 +91,4 @@ app.post('api/post', upload.single('image'), function (req,res){
 // Tell us where we're running from
 console.log("Server running on http://localhost:" + port)
 app.listen(port)
-
-}) 
+ 

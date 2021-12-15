@@ -31,6 +31,7 @@
     <div class = "post">
         <h2></h2>
         <div class = "body"></div>
+        <div class = "image"></div>
     </div>
 
 </template>
@@ -46,6 +47,7 @@ function showPost(post){
 
     clone.getElementsByTagName('h2')[0].textContent = "My Post Title"
     clone.getElementsByClassName('body')[0].textContent = "My post content"
+    clone.getElementsById('image')[0].textContent = "My Image"
 
     container.appendChild(clone)
 
