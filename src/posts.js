@@ -37,8 +37,8 @@ imageUpload(body, file, callback) {
    
             callback(result)
     })
-.catch(err => {
-    console.log('post failed to upload:' + err)
+        .catch(err => {
+          console.log('post failed to upload:' + err)
 })
 
 }

@@ -1,23 +1,26 @@
 
-function callApi(data) {
-    let url="/api/posts" 
+function callApi(form) {
+    let url="/api/post" 
     let options = {
         method: "POST",
-        headers:{
-            "Content-Type":"application/json",
+      //  headers:{
+           // "Content-Type":"application/json",
             //pass the user token through the headers
-            "X-API-Token": window.sessionStorage.getItem('token')
-        },
-        body:JSON.stringify(data)
+        //    "X-API-Token": window.sessionStorage.getItem('token')
+    //    },
+        body: new FormData(form)
     } 
-
-    let form = document.getElementById("postForm")
-    let title =  document.getElementById("title")
-    let body = document.getElementById("body")
+fetch(url, options)
+ //   let form = document.getElementById("postForm")
+  //  let title =  document.getElementById("title")
+  //  let body = document.getElementById("body")
 }    
 
 postForm.addEventListener("submit", (event) => { 
 	event.preventDefault();      // stop
+    let form = document.getElementById("postForm")
+    callApi(form)
+    console.log('buttonclicked')
 })
 
 function apiGetRequest(url){
@@ -29,6 +32,8 @@ function apiGetRequest(url){
     let formData = new FormData(postForm)
     let title  = formData.get("title")
     let body = formData.get("body")    //send to api
+
+    let form = document.getElementById('newPost')
 
     let data = {
     title: title,
@@ -42,12 +47,7 @@ function apiGetRequest(url){
 
 //})
     
-        let form = document.getElementById('newPost')
+    
 
-        function formSubmitHandler(form) {
-            fetch('/api/posts', {
-                method: "POST",
-                body: new FormData(form)
-            })
-        }
+      
     

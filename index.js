@@ -20,9 +20,9 @@ const storage = multer.diskStorage({
   }
 })
 
-const upload = multer({
-  storage: storage
-})
+  const upload = multer({
+    storage: storage
+  })
 
 // Tell Express to serve HTML, JS, CSS etc from the public/ folder
 // See: http://expressjs.com/en/starter/static-files.html
@@ -53,22 +53,22 @@ function notAllowed(res) {
   })
 }
 
-app.post('/api/posts', function(req ,res){
+// app.post('/api/post', function(req ,res){
   
-  posts.insertPost(req.body.title, req.body.body, result =>
-     {
+//   posts.insertPost(req.body.title, req.body.body, result =>
+//      {
    
   
-    res.send({});
- //   res.json(result)
-  }) 
+//     res.send({});
+//  //   res.json(result)
+//   }) 
   
    
-  console.log(req.body);
+//   console.log(req.body);
  
 
-})
-})
+// })
+// })
 
 app.get('/api/posts', (req,res) => {
   let limit = 3
@@ -90,3 +90,5 @@ app.post('api/post', upload.single('image'), function (req,res){
 // Tell us where we're running from
 console.log("Server running on http://localhost:" + port)
 app.listen(port)
+
+}) 
