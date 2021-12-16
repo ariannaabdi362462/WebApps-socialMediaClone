@@ -8,7 +8,6 @@
     <style>
     h1{
         color:rgb(156, 6, 6);
-
     }
     </style>
 </head>
@@ -17,6 +16,19 @@
     <a href="/login.html">Login</a> 
     <a id = "logoutLink" onclick="logout()" href="#">Logout</a>
 
+    <nav>
+        <ul>
+            <li>
+                <a href="/index.html">Home</a>
+            </li>
+            <li>
+                <a href="/new-posts.html">Posts</a>
+            </li>
+            <li>
+                <a href="/login.html">Log In</a>
+            </li>
+        </ul>
+    </nav>
 </body>
 <div id = "posts">
 
@@ -25,13 +37,14 @@
 <div>
     <button onclick="nextPage()">Load more...</button> 
 </div>
+
     
 <template id = "post-template">
 
     <div class = "post">
         <h2></h2>
         <div class = "body"></div>
-        <div class = "image"></div>
+       <img class = "image"><img>
     </div>
 
 </template>
