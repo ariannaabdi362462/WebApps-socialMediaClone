@@ -7,8 +7,42 @@
     <link rel="stylesheet" href="/public/css/style.css" type="text/css">
     <style>
     h1{
-        color:rgb(156, 6, 6);
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color:rgb(68, 7, 180);
     }
+    body {
+    
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+form {border: 3px solid #f1f1f1;
+}
+
+.navBar{
+  overflow: hidden;
+  background-color: #e9e9e9;   
+}
+
+.navBar a{
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navBar a:hover { 
+    background-color: #ddd;
+    color: black;
+}
+
+.navBar a.active{
+   background-color: #2196F3;
+  color: white;
+}
+
     </style>
 </head>
 <body>
@@ -16,18 +50,14 @@
     <a href="/login.html">Login</a> 
     <a id = "logoutLink" onclick="logout()" href="#">Logout</a>
 
-    <nav>
-        <ul>
-            <li>
+    <nav class ="navBar">
+     
                 <a href="/index.html">Home</a>
-            </li>
-            <li>
+           
                 <a href="/new-posts.html">Posts</a>
-            </li>
-            <li>
+       
                 <a href="/login.html">Log In</a>
-            </li>
-        </ul>
+      
     </nav>
 </body>
 <div id = "posts">
