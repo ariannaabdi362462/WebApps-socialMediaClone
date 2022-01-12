@@ -56,8 +56,18 @@ postImage(title, body, filename, callback) {
     .catch(err => {
         console.log('post failed to upload:' +err)
     })
-}
+},
 
+postComment(body, callback){
 
+    DB.connect().then(db => {
+        db.run('SELECT * from comments WHERE post_id = ? ORDER BY id ASC'). then(result => {
+            callback(result)
+        })
+    })
+    .catch(err => {
+        console.log('post failed to upload:' +err)
+    })
+},
 
 }
