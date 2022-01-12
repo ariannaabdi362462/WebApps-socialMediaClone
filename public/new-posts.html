@@ -29,9 +29,12 @@
    
     <input id ="title" name = "title" placeholder="Enter title" required>
     <input id ="body" name ="body" placeholder="Enter Text" required> <!--Names match database table names-->
-    <input type="file" name="image">
+    <!-- <input type="file" name="image"> -->
     <input id = "postFormSubmit" type="submit" value="Submit"/>
    
+    <form action="" method="post">
+        <input type="file" name="image">
+    </form>
     <template id="post-template">
         <div class="post">
             <h2></h2>
@@ -40,9 +43,11 @@
     </template>
 </form>
 
+
 <input id ="body" name ="body" placeholder="Post a Comment"> <!--Comments -->
 <input id ="postComment" type="submit" value="submit comment"/>
 </main>
+
 </body>
 
 <script type ="text/javascript" src ="js/new-posts.js"></script>
