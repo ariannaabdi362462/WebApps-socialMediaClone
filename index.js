@@ -71,6 +71,7 @@ function notAllowed(res) {
 // })
 // })
 
+//post timeline
 app.get('/api/posts', (req,res) => {
   let limit = 3
   let offset = req.query.offset
@@ -81,6 +82,7 @@ app.get('/api/posts', (req,res) => {
   })
 })
 
+//post timeline
 
 app.post('/api/post', upload.single('image'), function (req,res){
   console.log(req.body, req.file)

@@ -26,13 +26,26 @@ module.exports = {
         })
     },
 
+    register(username, password, callback){
+        DB.connect().then(db =>{
+            db.run('INSERT INTO users(username, password) VALUES (?,?)', username, password).then(result =>{
+                callback(true)
+            })
+      .catch(err =>{
+          callback(false)
+            })
+        })
+    },
+
     findByToken(token) {
         DB.connect().then(db => {
-            db.get('SELECT * FROM users WHERE token = ?', token).then(result => {
+            db.get("SELECT * FROM users WHERE token = ?", token).then(result => {
                 callback(result)
             })
             .catch(err => {
                 console.log('users.findByToken failed with error:' + err)
+                
+                callback(false)
             })
         })
     }

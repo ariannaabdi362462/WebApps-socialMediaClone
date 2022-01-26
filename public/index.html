@@ -11,7 +11,6 @@
         color:rgb(68, 7, 180);
     }
     body {
-    
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -47,81 +46,24 @@ form {border: 3px solid #f1f1f1;
 </head>
 <body>
     <h1>InTouch</h1>
-    <a href="/login.html">Login</a> 
-    <a id = "logoutLink" onclick="logout()" href="#">Logout</a>
+   
 
     <nav class ="navBar">
      
-                <a href="/index.html">Home</a>
+        <a href="/index.html">Home</a>
            
-                <a href="/new-posts.html">Posts</a>
-       
-                <a href="/login.html">Log In</a>
+        <a href="/new-posts.html">Posts</a>
+
+      
+
+        <a href ="timeline.html">Timeline</a>
+
+        <a href="register.html">Sign Up</a>
+        <a href="/login.html">Login</a> 
+        <a id = "logoutLink" onclick="logout()" href="#">Logout</a>
+    
       
     </nav>
 </body>
-<div id = "posts">
-
-</div>
-
-<div>
-    <button onclick="nextPage()">Load more...</button> 
-</div>
-
-    
-<template id = "post-template">
-
-    <div class = "post">
-        <h2></h2>
-        <div class = "body"></div>
-       <img class = "image"><img>
-    </div>
-
-</template>
-
-<script>
-
-function showPost(post){
-
-    let template = document.getElementById("post-template")
-    let container = document.getElementById("posts")
-
-    let clone = template.content.firstElementChild.cloneNode(true)
-
-    clone.getElementsByTagName('h2')[0].textContent = "My Post Title"
-    clone.getElementsByClassName('body')[0].textContent = "My post content"
-    clone.getElementsByClassName('image')[0].textContent = "My Image"
-
-    container.appendChild(clone)
-
-
-}
-
-
-
-let itemsPerPage = 3
-let currentPage = 0
-
-function loadPosts(){
-    let offset = itemsPerPage * currentPage
-
-    fetch('/api/posts?offset=' + offset).then(response => {
-
-        response.json().then(result => {
-            console.log(result)
-            result.forEach(showPost)
-        })
-      
-
-    })
-}
-function nextPage() {
-    currentPage++
-    loadPosts()
-}
-
-loadPosts()
-
 </script>
-
 </html>
