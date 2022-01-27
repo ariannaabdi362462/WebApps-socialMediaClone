@@ -4,7 +4,7 @@ function callApi(form) {
     let options = {
         method: "POST",
        headers:{
-           "Content-Type":"application/json",
+          
         
            "X-API-Token": window.sessionStorage.getItem('token')
        },

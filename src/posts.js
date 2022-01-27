@@ -4,9 +4,9 @@ const db = require('./db.js')
 
 module.exports = {
 
-    insertPost(title, body, userId, imageId, callback) {
+    insertPost(title, body, imageId, callback) {
         DB.connect().then(db => {
-            db.run('INSERT INTO posts("title", "body", "user_id", "images_id") VALUES(?,?,?,?)', title, body, userId, imageId).then(result => {
+            db.run('INSERT INTO posts("title", "body", "images_id") VALUES(?,?,?)', title, body, imageId).then(result => {
                 callback()
             })
         .catch(err => {
@@ -34,30 +34,32 @@ getPosts(offset, limit, callback) {
 imageUpload(filename, callback) {
 
     DB.connect().then(db =>{
-        db.run('INSERT INTO images ("filename") VALUES(?,?)', filename).then(result => {
+        db.run('INSERT INTO images("filename") VALUES(?)', filename).then(result => {
 
             callback(result)
         })
        
    
-    })
-    .catch(err => {
-        console.log('post failed to upload:' + err)
-    })
-},
-
-postImage(title, body, filename, callback) {
     
-    DB.connect().then(db => {
-        db.run('SELECT * FROM posts JOIN images ON posts.image_id = images.id', title, body, filename). then(result => {
-            callback(result)
-        })
-  
-    })
     .catch(err => {
-        console.log('post failed to upload:' +err)
+        console.log('image failed to upload:' + err)
     })
+})
 },
 }
+
+// postImage(title, body, filename, callback) {
+    
+//     DB.connect().then(db => {
+//         db.run('SELECT * FROM posts JOIN images ON posts.image_id = images.id', title, body, filename). then(result => {
+//             callback(result)
+//         })
+  
+//     })
+//     .catch(err => {
+//         console.log('post failed to upload:' +err)
+//     })
+// },
+// }
 
 

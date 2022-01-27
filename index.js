@@ -54,6 +54,22 @@ function notAllowed(res) {
   })
 }
 
+app.post('/posts/:postId/like', (req,res)=>{
+  let postId = req.params.postId // Get the post id from the route parameter
+  let apiToken = req.get('X-API-Token') 
+  
+  if(apiToken){
+      users.findByToken(apiToken, user =>{
+          db.connect().then(db =>{
+              db.get('SELECT * FROM likes WHERE user_id = ? AND post_id = ?', user.id, postId). then(result =>{
+                  if(result){
+                      
+                  }
+              })
+          })
+      })
+  }
+})
 // app.post('/api/post', function(req ,res){
   
 //   posts.insertPost(req.body.title, req.body.body, result =>
@@ -85,8 +101,18 @@ app.get('/api/posts', (req,res) => {
 //post timeline
 
 app.post('/api/post', upload.single('image'), function (req,res){
-  console.log(req.body, req.file)
-  res.send({})
+  // console.log(req.body, req.file)
+  // res.send({})
+
+  if(req.file){
+    posts.imageUpload(req.file.filename, function(result){
+      posts.insertPost(req.body.title, req.body.body, result.lastID);
+    })
+  }
+  else{
+    posts.insertPost(req.body.title, req.body.body, null)
+  }
+res.send({})
 })
 
 
