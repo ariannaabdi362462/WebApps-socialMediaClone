@@ -3,17 +3,15 @@ function callApi(form) {
     let url="/api/post" 
     let options = {
         method: "POST",
-      //  headers:{
-           // "Content-Type":"application/json",
-            //pass the user token through the headers
-        //    "X-API-Token": window.sessionStorage.getItem('token')
-    //    },
+       headers:{
+           "Content-Type":"application/json",
+        
+           "X-API-Token": window.sessionStorage.getItem('token')
+       },
         body: new FormData(form)
     } 
 fetch(url, options)
- //   let form = document.getElementById("postForm")
-  //  let title =  document.getElementById("title")
-  //  let body = document.getElementById("body")
+
 }    
 
 postForm.addEventListener("submit", (event) => { 
@@ -23,11 +21,7 @@ postForm.addEventListener("submit", (event) => {
     console.log('buttonclicked')
 })
 
-function apiGetRequest(url){
-    return fetch(url).then(
-        response => response.json()
-    )
-}
+
 
     let formData = new FormData(postForm)
     let title  = formData.get("title")
@@ -42,13 +36,6 @@ function apiGetRequest(url){
  }
 
  
- //data response
-//  callApi(data).then(response => { 
-//     console.log(response)
-
-//})
-    
-    
 
       
     
