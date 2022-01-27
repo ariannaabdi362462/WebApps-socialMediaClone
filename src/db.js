@@ -1,7 +1,7 @@
 const sqlite = require('sqlite')
 const sqlite3 = require('sqlite3')
 
-const dbFilename= './webApps.db'
+const dbFilename = './webApps.db'
 
 sqlite3.verbose();
 
