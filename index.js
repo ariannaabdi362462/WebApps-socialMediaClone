@@ -10,6 +10,7 @@ const { request } = require('express')
 
 const UUID = require('uuid')
 const multer = require('multer')
+const { get } = require('express/lib/response')
 
 const storage = multer.diskStorage({
   destination: function (req, file, callback){
@@ -125,7 +126,9 @@ res.send({})
 
 // // Create a comment
 app.get('/api/comments', function (req, res) {
-
+get.postComments(req.body.postid, function(result){
+  res.send({})
+})
 })
 
 // Tell us where we're running from

@@ -46,20 +46,6 @@ imageUpload(filename, callback) {
     })
 })
 },
+
 }
-
-// postImage(title, body, filename, callback) {
-    
-//     DB.connect().then(db => {
-//         db.run('SELECT * FROM posts JOIN images ON posts.image_id = images.id', title, body, filename). then(result => {
-//             callback(result)
-//         })
-  
-//     })
-//     .catch(err => {
-//         console.log('post failed to upload:' +err)
-//     })
-// },
-// }
-
 

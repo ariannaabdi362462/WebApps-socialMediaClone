@@ -6,7 +6,7 @@ function callApi(form) {
        headers:{
           
         
-           "X-API-Token": window.sessionStorage.getItem('token')
+       "X-API-Token": window.sessionStorage.getItem('token')
        },
         body: new FormData(form)
     } 
@@ -26,13 +26,13 @@ postForm.addEventListener("submit", (event) => {
     let formData = new FormData(postForm)
     let title  = formData.get("title")
     let body = formData.get("body")    //send to api
-
+ 
     let form = document.getElementById('newPost')
 
     let data = {
     title: title,
     body: body,
-   
+ 
  }
 
  

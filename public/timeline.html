@@ -84,6 +84,23 @@ color: white;
   }
 }
 
+.loadMoreButton{
+padding-right: 30px;
+padding-left: 30px;
+}
+.comment{
+    width: 50%;
+  height: 50px;
+
+  padding-bottom: 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+  font-size: 16px;
+  color:#FFFFFF;
+  resize: none;
+}
 
 </style>
   </head>
@@ -110,7 +127,8 @@ color: white;
       <!-- Posts will show here -->
 
     </div>
-
+    <input id ="body" class="comment"name ="body" placeholder="Write a Comment..."> <!--Comments -->
+    <input id ="postComment" type="submit" class="button" value="Post comment"/>
  
 
     <button id="loadMoreButton" class="button" onclick="nextPage()">Load more...</button>
@@ -123,13 +141,14 @@ color: white;
 
         <h2></h2>
 
-
+            <img>
         <div class="body"></div>
 
       </div>
-
+     
     </template>
 
+    
  
 
     <script>
@@ -198,7 +217,7 @@ color: white;
 
           clone.getElementsByClassName("body")[0].textContent = post.body;
 
-          if (post.image_id) {
+          if (post.images) {
 
             clone.getElementsByTagName("img")[0].src =
 
