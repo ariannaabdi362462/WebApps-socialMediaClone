@@ -89,7 +89,7 @@ app.post('/posts/:postId/like', (req,res)=>{
 
 //post timeline
 app.get('/api/posts', (req,res) => {
-  let limit = 3
+  let limit = 5
   let offset = req.query.offset
 
   posts.getPosts(offset, limit, (result) => {
@@ -104,6 +104,13 @@ app.post('/api/post', upload.single('image'), function (req,res){
   // console.log(req.body, req.file)
   // res.send({})
 
+let apiToken = req.get('X-API-Token')
+//user id
+
+if(!users){
+  notAllowed(res)
+  return
+}
   if(req.file){
     posts.imageUpload(req.file.filename, function(result){
       posts.insertPost(req.body.title, req.body.body, result.lastID);
@@ -116,7 +123,10 @@ res.send({})
 })
 
 
+// // Create a comment
+app.get('/api/comments', function (req, res) {
 
+})
 
 // Tell us where we're running from
 console.log("Server running on http://localhost:" + port)

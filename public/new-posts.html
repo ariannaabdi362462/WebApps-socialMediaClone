@@ -17,8 +17,8 @@ form {border: 3px solid #f1f1f1;
 }
 
 .navBar{
-overflow: hidden;
-background-color: #e9e9e9;   
+  overflow: hidden;
+  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
 }
 
 .navBar a{
@@ -40,6 +40,82 @@ color: black;
 background-color: #2196F3;
 color: white;
 }
+.title{
+    width: 50%;
+  height: 100px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+
+
+  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+  font-size: 20px;
+  color:#FFFFFF;
+  font-weight: bold;
+  resize: none;
+}
+.text{
+    width: 50%;
+  height: 150px;
+  
+  padding: 20px 20px;
+  box-sizing: border-box;
+
+  /* background-color: #f8f8f8; */
+  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+  font-size: 16px;
+ color:#FFFFFF;
+  resize: none;
+}
+
+.comment{
+    width: 50%;
+  height: 50px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+  font-size: 16px;
+  color:#FFFFFF;
+  resize: none;
+}
+
+.button{
+  align-items: center;
+  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  font-family: Phantomsans, sans-serif;
+  font-size: 20px;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 140px;
+  padding: 19px 24px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.button:active,
+.button:hover {
+  outline: 0;
+}
+
+@media (min-width: 768px) {
+  .button {
+    font-size: 24px;
+    min-width: 196px;
+  }
+}
+
 </style>
 </head>
 <h1>InTouch</h1>
@@ -62,14 +138,14 @@ color: white;
 </nav>
 <body>
 <main>
-<h1>Enter a post:</h1>
+<h1>Whats on your mind...?</h1>
    
 <form id ="postForm"  name ="postForm">
    
-    <input id ="title" name = "title" placeholder="Enter title" required>
-    <input id ="body" name ="body" placeholder="Enter Text" required> <!--Names match database table names-->
+    <input id ="title" class="title" name = "title" placeholder="Enter title" required >
+    <input id ="body" name ="body" class="text"placeholder="Enter Text" required> <!--Names match database table names-->
     <!-- <input type="file" name="image"> -->
-    <input id = "postFormSubmit" type="submit" value="Submit"/>
+    <input id = "postFormSubmit" class="button" type="submit" value="Post"/>
    
     <form action="" method="post">
         <input type="file" name="image">
@@ -83,8 +159,8 @@ color: white;
 </form>
 
 
-<input id ="body" name ="body" placeholder="Post a Comment"> <!--Comments -->
-<input id ="postComment" type="submit" value="submit comment"/>
+<input id ="body" class="comment"name ="body" placeholder="Write a Comment..."> <!--Comments -->
+<input id ="postComment" type="submit" class="button" value="Post comment"/>
 </main>
 
 </body>
@@ -92,3 +168,7 @@ color: white;
 <script type ="text/javascript" src ="js/new-posts.js"></script>
 
 </html>
+
+
+
+

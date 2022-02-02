@@ -22,10 +22,10 @@
         border: 3px solid #f1f1f1;
     }
 
-    .navBar {
-        overflow: hidden;
-        background-color: #e9e9e9;
-    }
+    .navBar{
+  overflow: hidden;
+  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+}
 
     .navBar a {
         float: left;
@@ -89,17 +89,17 @@
 
     <form id="register-form" name="register-form">
         <!-- TODO: Add username address input -->
-        <label for="username">Username</label>
+        <label for="username">Create Username</label>
         <input id="username" placeholder="Enter Username" type="text" name="username" autofocus>
         <!-- TODO: Add password address input -->
-        <label for="password">Password</label>
+        <label for="password">Create Password</label>
         <input id="password" placeholder="Enter Password" type="password" name="password" autofocus>
         <!-- TODO: Add submit button -->
         <input type="submit" value="Register" />
         <input type="checkbox" checked="checked" name="remember"> Remember me
         </label>
-
-        <span class="psw">Forgot <a href="#">password?</a></span>
+<!-- 
+        <span class="psw">Forgot <a href="#">password?</a></span> -->
 
     </form>
 
@@ -137,7 +137,7 @@
                 window.location = 'http://localhost:3000/login.html'
         } else {
         
-            alert("Error registering account. Username could already be taken.")
+            alert("Error registering account. Username already registered")
             
         }
 
