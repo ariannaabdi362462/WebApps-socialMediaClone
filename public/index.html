@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home page</title>
 
-    <style>
-    h1{
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        color:rgb(68, 7, 180);
-    }
-    body {
+<style>
+h1{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color:rgb(68, 7, 180);
+}
+body {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
-form {border: 3px solid #f1f1f1;
+form {
+    border: 3px solid #f1f1f1;
 }
 
 .navBar{
@@ -42,6 +43,31 @@ form {border: 3px solid #f1f1f1;
   color: white;
 }
 
+.news {
+  margin: 0;
+  padding: 5px;
+  background-color: lightgray;
+}
+
+.news > h1, .browser {
+  margin: 10px;
+  padding: 5px;
+}
+
+.browser {
+  background: white;
+}
+
+.browser > h2, p {
+  margin: 4px;
+  font-size: 90%;
+}
+
+img{
+    width:400px;
+    height:100%; 
+}
+
     </style>
 </head>
 <body>
@@ -50,21 +76,36 @@ form {border: 3px solid #f1f1f1;
 
     <nav class ="navBar">
      
-        <a href="/index.html">Home</a>
-           
+        <a href="/index.html">Home</a> 
         <a href="/new-posts.html">Posts</a>
-
-      
-
         <a href ="timeline.html">Timeline</a>
-
         <a href="register.html">Sign Up</a>
         <a href="/login.html">Login</a> 
+        
         <a id = "logoutLink" onclick="logout()" href="#">Logout</a>
     
      
     </nav>
-    <h2>Latest News</h2>
+   
+
+    <article class="news">
+        <h1>Latest News</h1>
+        <article class="browser">
+     
+          <p>Student-built robot rover on track to explore the Moon!</p>
+          <img src ="news-pic.jpg">
+        </article>
+        <article class="browser">
+    
+          <p>Woman with Down's syndrome launching modelling career after being signed by major agency</p>
+          <img src="news-pic2.jpg">
+        </article>
+
+          <article class="browser">
+          <p>Carlisle Castle Mary Queen of Scots letter sells for £32.5k</p>
+          <img src="news-pic3.jpg">
+        </article>
+      </article>
 </body>
 </script>
 </html>

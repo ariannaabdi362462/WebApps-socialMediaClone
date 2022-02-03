@@ -79,6 +79,7 @@
         <a href="/register.html">Sign Up</a>
 
         <a href="/login.html">Login</a> 
+       
         <a id = "logoutLink" onclick="logout()" href="#">Logout</a>
 
     </nav>
@@ -88,18 +89,19 @@
     </div>
 
     <form id="register-form" name="register-form">
-        <!-- TODO: Add username address input -->
+ 
         <label for="username">Create Username</label>
         <input id="username" placeholder="Enter Username" type="text" name="username" autofocus>
-        <!-- TODO: Add password address input -->
+ 
         <label for="password">Create Password</label>
         <input id="password" placeholder="Enter Password" type="password" name="password" autofocus>
-        <!-- TODO: Add submit button -->
+        <label for="password">Check Password</label>
+        <input id="password" placeholder="Enter Password" type="password" name="password" autofocus>
+      
         <input type="submit" value="Register" />
         <input type="checkbox" checked="checked" name="remember"> Remember me
         </label>
-<!-- 
-        <span class="psw">Forgot <a href="#">password?</a></span> -->
+
 
     </form>
 
@@ -116,7 +118,8 @@
             let data = new FormData(form)
 
         function callApi(data) {
-            let url = "/api/register"
+            let url = "/api/register" 
+    
             let options = {
                 method: "POST",
 

@@ -5,9 +5,10 @@ const db = require('./db.js')
 module.exports = {
 
     insertPost(title, body, imageId, callback) {
+        
         DB.connect().then(db => {
             db.run('INSERT INTO posts("title", "body", "images_id") VALUES(?,?,?)', title, body, imageId).then(result => {
-                callback()
+         callback()
             })
         .catch(err => {
             console.log('post failed to upload:' + err )
@@ -17,12 +18,10 @@ module.exports = {
 
 },
 
-getPosts(offset, limit, callback) {
+    getPosts(offset, limit, callback) {
 
     DB.connect().then(db => {
-        db.all('SELECT * FROM posts LEFT JOIN images ON posts.images_id = images.id ORDER BY id DESC LIMIT ? OFFSET ?', 
-        limit, offset)
-        .then(result => {
+        db.all('SELECT * FROM posts LEFT JOIN images ON posts.images_id = images.id ORDER BY id DESC LIMIT ? OFFSET ?', limit, offset) .then(result => {
         callback(result)
         })
         .catch(err => { 
@@ -31,16 +30,13 @@ getPosts(offset, limit, callback) {
     })
 },   
 
-imageUpload(filename, callback) {
+    imageUpload(filename, callback) {
 
     DB.connect().then(db =>{
         db.run('INSERT INTO images("filename") VALUES(?)', filename).then(result => {
 
-            callback(result)
+        callback(result)
         })
-       
-   
-    
     .catch(err => {
         console.log('image failed to upload:' + err)
     })
